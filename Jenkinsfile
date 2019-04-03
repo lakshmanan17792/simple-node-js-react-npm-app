@@ -26,7 +26,7 @@ pipeline {
         }
         stage('Deliver') {
             steps {
-                sh 'pm2 start ./bin/server.js'
+                sh 'pm2 start ./scr/App.js'
                 // input message: 'Finished using the web site? (Click "Proceed" to continue)'
                 // // sh './jenkins/scripts/kill.sh'
             }
