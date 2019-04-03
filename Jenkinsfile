@@ -14,16 +14,16 @@ pipeline {
                 sh 'npm install'
             }
         }
-        stage('Test') {
+        stage('Run build') {
             steps {
-                sh './jenkins/scripts/test.sh'
+                sh 'npm run build'
             }
         }
         stage('Deliver') {
             steps {
-                sh './jenkins/scripts/deliver.sh'
-                input message: 'Finished using the web site? (Click "Proceed" to continue)'
-                // sh './jenkins/scripts/kill.sh'
+                sh 'npm start'
+                // input message: 'Finished using the web site? (Click "Proceed" to continue)'
+                // // sh './jenkins/scripts/kill.sh'
             }
         }
     }
