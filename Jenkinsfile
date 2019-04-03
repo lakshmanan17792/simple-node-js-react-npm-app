@@ -19,9 +19,14 @@ pipeline {
                 sh 'npm run build'
             }
         }
+        stage('PM2 intallation'){
+            steps{
+                sh 'npm install pm2 -g'
+            }
+        }
         stage('Deliver') {
             steps {
-                sh 'npm start'
+                sh 'pm2 start npm -- start'
                 // input message: 'Finished using the web site? (Click "Proceed" to continue)'
                 // // sh './jenkins/scripts/kill.sh'
             }
